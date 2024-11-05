@@ -1,0 +1,24 @@
+class Solution {
+public:
+int squaredigitsofnumber(int number) {
+    int totalSum = 0;
+    number = abs(number);
+
+    while (number > 0) {
+        int digit = number % 10; 
+        totalSum += digit * digit;
+        number /= 10; 
+    }
+
+    return totalSum; 
+}
+    bool isHappy(int n) {
+        int x= squaredigitsofnumber(n);
+        int y= squaredigitsofnumber(squaredigitsofnumber(x));
+         while(x!=y && x!=1){
+            x= squaredigitsofnumber(x);
+            y= squaredigitsofnumber(squaredigitsofnumber(y));
+        }
+        return x == 1;
+    }
+};
